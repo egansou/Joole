@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <div class="search_box">
+        <div class="dropdown">
+            <div class="default_option" (click) = "showC()" >{{defaultCategory}}</div>
+            <ul *ngIf="showCategories">
+                <li *ngFor="let category of categories">
+                    <span (click)="selectC(category)"> {{category}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="search_field">
+            <input type="text"  [(ngModel)]="typeSearch" (keyup)="searchT()" class="input" placeholder="search...">
+            <i class="fas fa-sort-down" (click) = "showAllT()"></i>
+            <i class="fas fa-search" (click) = "submit()" ></i>
+            <ul *ngIf="searchTypes.length > 0">
+                <li *ngFor="let type of searchTypes">
+                  <span (click)="selectT(type)"> {{type}}</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

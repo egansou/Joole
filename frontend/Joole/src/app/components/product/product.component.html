@@ -1,0 +1,33 @@
+
+    <div class='inner'>
+      <p class="header">Verified {{date}}</p>
+      <img [src]="fanImage" alt="Not found">
+
+      <a routerLink='/product/{{fanId}}'>
+        <div class = detail>{{manufName}}</div>
+        <div class = detail>{{series}}</div>
+        <div class = detail>{{model}}</div>
+      </a>
+      <div class="info">
+        <div>{{airflow}} CFM</div>
+        <div>{{powerMax}} W at max speed</div>
+        <div>{{soundMaxSpeed}} dBA at max speed</div>
+        <div>{{fanDiameter}}” fan sweep diameter</div>
+      </div>
+
+      <div class="specifications">
+        <div>Past specifications:</div>
+        <div>{{firmSpec}} firm / {{globalSpec}} global</div>
+      </div>
+
+      <span class="compare">
+      <input (click)="onSelect()" type="checkbox" id="compare" name="compare" value="1">
+      &nbsp;
+      <label for="compare">Compare</label>
+      </span>
+
+      <input class="addto" type="button" value="Add to">
+
+      <br><br>
+      
+  </div>

@@ -1,0 +1,173 @@
+<div class="topPart">
+  <a *ngIf="!this.authService.isLoggedIn()" routerLink="/signup" class="auth">Sign up</a>
+  <div *ngIf="this.authService.isLoggedIn()" class="auth">
+    <h3>Joole</h3>
+    <app-searchbar></app-searchbar>
+    <div class="user">
+      Welcome {{this.authService.currentUser.sub}} &nbsp;&nbsp;
+      <a (click)="this.authService.logout()" routerLink="/">Log out</a>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="layer">
+
+
+  <div class="row">
+    
+    <div class="col-md-2 sidebar">
+
+      <nav class="sidebarContent">
+
+        <div class = "searchButtons">
+          Search: &nbsp;
+          <input class="saveButton" type="button" (click) ="save()" value="Save">
+          &nbsp; 
+          <input class="clearButton" type="button" (click) ="clear()" value="Clear">
+        </div>
+
+        <div class="task">
+          <div class="row">
+            <div class="col-md-6 selected">
+              Product
+            </div>
+            <div class="col-md-6">
+              Project
+            </div>
+          </div>
+        </div>
+
+        <div class="productType">
+          <div class="title">
+            Product Type 
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+
+        <div class="year">
+          <span class="name">
+            Model year:
+          </span>
+          <input class="input" type="text" id="yearMin" [(ngModel)]="yearMin">&nbsp; - &nbsp;
+          <input class="input" type="text" id="yearMax" [(ngModel)]="yearMax">   
+        </div>
+
+        <div class="techSpec">
+          <div class="title">
+            Technical Specifications 
+            <i class="fas fa-angle-right" *ngIf="!expandTechSpec" (click)="techSpec()"></i>
+            <i class="fas fa-angle-down" *ngIf="expandTechSpec" (click)="techSpec()"></i>
+          </div>
+          <div class="content" *ngIf="expandTechSpec">
+            <div>
+              <div class="name">
+                Airflow (CFM):
+              </div>
+              <input class="input" type="text" id="airflowMin" [(ngModel)]="airflowMin">&nbsp; - &nbsp;
+              <input class="input" type="text" id="airflowMax" [(ngModel)]="airflowMax">
+            </div>
+            <div>
+              <div class="name">
+                Max power (W):
+              </div>
+              <input class="input" type="text" id="maxPowerMin" [(ngModel)]="maxPowerMin">&nbsp; - &nbsp;
+              <input class="input" type="text" id="maxPowerMax" [(ngModel)]="maxPowerMax">
+            </div>
+            <div>
+              <div class="name">
+                Sound at max speed (dBA):
+              </div>
+              <input class="input" type="text" id="soundMin" [(ngModel)]="soundMin">&nbsp; - &nbsp;
+              <input class="input" type="text" id="soundMax" [(ngModel)]="soundMax">
+            </div>
+            <div>
+              <div class="name">
+                Fan sweep diameter (in):
+              </div>
+              <input class="input" type="text" id="sweepMin" [(ngModel)]="sweepMin">&nbsp; - &nbsp;
+              <input class="input" type="text" id="sweepMax" [(ngModel)]="sweepMax">
+            </div>
+          </div>
+        </div>
+
+        <div class="brand">
+          <div class="title">
+            Brand 
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+
+        <div class="pastSelect">
+          <div class="title">
+            Past Selections 
+            <i class="fas fa-angle-right" *ngIf="!expandPastSelect" (click)="pastSelect()"></i>
+            <i class="fas fa-angle-down" *ngIf="expandPastSelect" (click)="pastSelect()"></i>
+          </div>
+          <div class="content" *ngIf="expandPastSelect">
+            <div>
+              <div class="name">
+                Firm:
+              </div>
+              <input class="input" type="text" id="firmMin" [(ngModel)]="firmMin">&nbsp; - &nbsp;
+              <input class="input" type="text" id="firmMax" [(ngModel)]="firmMax">
+            </div>
+            <div>
+              <div class="name">
+                Global:
+              </div>
+              <input class="input" type="text" id="globalMin" [(ngModel)]="globalMin">&nbsp; - &nbsp;
+              <input class="input" type="text" id="globalMax" [(ngModel)]="globalMax">
+            </div>
+          </div>
+        </div>
+
+        <div class="Certifications">
+          <div class="title">
+            Certifications
+            <i class="fas fa-angle-right"></i>
+          </div>
+        </div>
+        
+
+
+      </nav>
+      
+    </div>  
+
+    <div class="col-md-8">
+
+      <br>
+      <span><a routerLink='/'>Mechanical</a></span>>
+      <span>HVAC fans</span>
+      
+      <input class="compareButton" 
+      type="button"
+      [disabled]="compareList.length <= 0"  
+      value="Compare" (click)="compare()">
+
+      <br><br>
+
+      <div class="row"> 
+          <div *ngFor="let p of products" class="col-md-3 product">
+            <app-product
+            [fanId] = "p.fanId"
+            [fanImage] = "p.fanImage"
+            [verifiedDate]="p.verifiedDate" 
+            [manufName]="p.manufacturer.manufName" 
+            [series]="p.series" 
+            [model]="p.model"
+            [airflow]="p.airflow"
+            [powerMax]="p.powerMax" 
+            [soundMaxSpeed]="p.soundMaxSpeed"
+            [fanDiameter]="p.fanDiameter" 
+            [firmSpec]="p.firmSpec" 
+            [globalSpec]="p.globalSpec"
+            (select)="updateCompareList($event)">
+            </app-product>    
+          </div>
+      </div>      
+    </div> 
+  </div>
+</div>

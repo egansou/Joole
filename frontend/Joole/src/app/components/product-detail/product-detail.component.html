@@ -1,0 +1,266 @@
+<div class="topPart">
+    <a *ngIf="!this.authService.isLoggedIn()" routerLink="/signup" class="auth">Sign up</a>
+    <div *ngIf="this.authService.isLoggedIn()" class="auth">
+      <h3 class = "title">Joole</h3>
+      <app-searchbar></app-searchbar>
+      <div class="user">
+        Welcome {{this.authService.currentUser.sub}} &nbsp;&nbsp;
+        <a (click)="this.authService.logout()" routerLink="/">Log out</a>
+      </div>
+    </div>
+</div>
+  
+<div class="layer">
+    <div class = "info" *ngIf="notFound">This product does not exist</div>
+    <div class = "info" *ngIf="!notFound">
+        
+        <span><a routerLink='/'>Mechanical</a></span>>
+        <span><a routerLink='/products'>HVAC fans</a></span>>
+        <span>{{model}}</span>
+
+
+        <div class="row productHeader"> 
+            <div class="col-md-1">
+                <img [src]="fanImage" alt="Not found">
+            </div>
+            <div class="col-md-4">
+                <h5>{{manufName}}/
+                {{series}}/
+                {{model}}</h5>
+            </div>
+            <div class="col-md-3">
+                <h6>Past specifications: {{firmSpec}} firm / 
+                    {{globalSpec}} global</h6>
+            </div>
+            <div class="col-md-4">
+                <app-button>
+                </app-button>
+            </div>
+        </div>
+
+        <h4>Product Summary</h4>
+        <div class="row"> 
+            <div class="col-md-6 description">
+                <div class="sub">DESCRIPTION</div>
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Manufacturer </div> 
+                        <div class="key"> Series </div>
+                        <div class="key"> Model </div> 
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value"> {{manufName}} </div> 
+                        <div class="value"> {{series}} </div> 
+                        <div class="value"> {{model}} </div> 
+                    </div>
+                </div>
+
+                <div class="sub">TYPE</div>
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Use Type </div> 
+                        <div class="key"> Application </div>
+                        <div class="key"> Mounting Location </div> 
+                        <div class="key"> Accessories </div>
+                        <div class="key last"> Model Year </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value"> {{useType}} </div> 
+                        <div class="value"> {{application}} </div> 
+                        <div class="value"> {{mountingLocation}} </div> 
+                        <div class="value"> {{accessories}} </div> 
+                        <div class="value last"> {{modelYear}} </div> 
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6 specifications">
+                <div class="sub">TECHNICAL SPECIFICATIONS</div>
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Airflow (CFM) </div> 
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value"> {{airflow}} </div> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Power (W) </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="row">
+                            <div class="col-md-3 keys">
+                                <div class="key"> Min </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{powerMin}} </div>
+                            </div>
+                            <div class="col-md-3 keys">
+                                <div class="key"> Max </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{powerMax}} </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Operating voltage (VAC) </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="row">
+                            <div class="col-md-3 keys">
+                                <div class="key"> Min </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{voltageMin}} </div>
+                            </div>
+                            <div class="col-md-3 keys">
+                                <div class="key"> Max </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{voltageMax}} </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Fan speed (RPM) </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="row">
+                            <div class="col-md-3 keys">
+                                <div class="key"> Min </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{fanSpeedMin}} </div>
+                            </div>
+                            <div class="col-md-3 keys">
+                                <div class="key"> Max </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{fanSpeedMax}} </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Number of fan speed </div>
+                        <div class="key"> Sound at max speed (dBA) </div>
+                        <div class="key"> Fan sweep diameter (in) </div> 
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value"> {{numberFanSpeed}} </div> 
+                        <div class="value"> {{soundMaxSpeed}} </div> 
+                        <div class="value"> {{fanDiameter}} </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Height (in) </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="row">
+                            <div class="col-md-3 keys">
+                                <div class="key"> Min </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{heightMin}} </div>
+                            </div>
+                            <div class="col-md-3 keys">
+                                <div class="key"> Max </div>
+                            </div>
+                            <div class="col-md-3 values">
+                                <div class="value"> {{heightMax}} </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key last"> Weight (lbs) </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value last"> {{weight}} </div> 
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <h4>Product Details</h4>
+        <div class="sub">SERIES INFORMATION</div>
+        <span *ngFor = "let seriesInfo of seriesInformation; let index = index">
+            <div *ngIf="index % 2"  class="value">{{seriesInfo}}</div>
+            <div *ngIf="!(index % 2)"  class="key">{{seriesInfo}}</div>
+        </span>
+
+        <h4>Product Documentation</h4>
+        <div class="row">
+            <span *ngFor = "let document of documents; let index = index">
+                <div class="col-md-3 keys">
+                    <div class="key">{{document}} </div>
+                </div>
+            </span>
+        </div>   
+            
+        <!--div *ngIf="index % 2"  class="value">{{document}}</div>
+            <div *ngIf="!(index % 2)"  class="key">{{document}}</div -->
+
+        <h4>Contact</h4>
+        <div class="row"> 
+            <div class="col-md-6 description">
+                <div class="sub">SALES REPRESENTATIVE</div>
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Name </div>
+                        <div class="key"> Phone </div>
+                        <div class="key"> Email </div>
+                        <div class="key last"> Web </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value"> {{repName}} </div>
+                        <div class="value"> {{repPhone}} </div>
+                        <div class="value"> {{repEmail}} </div>
+                        <div class="value last"> {{repWeb}} </div> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 description">
+                <div class="sub">MANUFACTURER</div>
+                <div class="row">
+                    <div class="col-md-4 keys">
+                        <div class="key"> Department </div>
+                        <div class="key"> Phone </div>
+                        <div class="key"> Email </div>
+                        <div class="key last"> Web </div>
+                    </div>
+                    <div class="col-md-8 values">
+                        <div class="value"> {{manufDep}} </div>
+                        <div class="value"> {{manufPhone}} </div>
+                        <div class="value"> {{manufEmail}} </div>
+                        <div class="value last"> {{manufWeb}} </div>                 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

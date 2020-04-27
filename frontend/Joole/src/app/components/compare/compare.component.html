@@ -1,0 +1,157 @@
+<div class="topPart">
+    <a *ngIf="!this.authService.isLoggedIn()" routerLink="/signup" class="auth">Sign up</a>
+    <div *ngIf="this.authService.isLoggedIn()" class="auth">
+      <h3>Joole</h3>
+      <app-searchbar></app-searchbar>
+      <div class="user">
+        Welcome {{this.authService.currentUser.sub}} &nbsp;&nbsp;
+        <a (click)="this.authService.logout()" routerLink="/">Log out</a>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="layer">
+    <div class = "info" *ngIf="products.length === 0">This product does not exist</div>
+    <div class = "info" *ngIf="products.length !== 0">
+        
+        <span><a routerLink='/'>Mechanical</a></span>>
+        <span><a routerLink='/products'>HVAC fans</a></span>>
+        <span>Compare</span>
+        <br><br>
+
+        <div class="container">
+            <div class="row">
+
+                <table class="table table-bordered table-condensed">
+                    <tr>
+                        <td></td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            <input class="addto" type="button" value="Add to">
+                            <p class="header">Verified 
+                                {{p.verifiedDate.split("-").reverse().join("/")}}</p><br>        
+                            <img [src]="p.fanImage" alt="Not found">
+                        </td>
+                    </tr>
+
+                    <tr class="sub">
+                        <td>DESCRIPTION</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Manufacturer</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.manufacturer.manufName}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Series</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.series}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Model</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.model}}
+                        </td>
+                    </tr>
+
+                    <tr class="sub">
+                        <td>TYPE</td>
+                        <td colspan = 4 *ngFor="let p of products">
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Use Type</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.useType}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Application</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.application}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Mounting Location</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.mountingLocation}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Accessories</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.accessories}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Model year</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.modelYear}}
+                        </td>
+                    </tr>
+
+                    <tr class="sub">
+                        <td>TECHNICAL SPECIFICATIONS</td>
+                        <td colspan = 4 *ngFor="let p of products">
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Airflow (CFM)</td>
+                        <td colspan = 4 *ngFor="let p of products">
+                            {{p.airflow}}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Power (W)</td> 
+                        <ng-container *ngFor="let p of products; let i = index">
+                            <td class="key">Min</td>
+                            <td>{{p.powerMin}}</td>
+                            <td class="key">Max</td>
+                            <td>{{p.powerMax}}</td>
+                        </ng-container>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Operating voltage (VAC)</td> 
+                        <ng-container *ngFor="let p of products; let i = index">
+                            <td class="key">Min</td>
+                            <td>{{p.voltageMin}}</td>
+                            <td class="key">Max</td>
+                            <td>{{p.voltageMax}}</td>
+                        </ng-container>
+                    </tr>
+
+                    <tr>
+                        <td class="key">Fan speed (RPM)</td> 
+                        <ng-container *ngFor="let p of products; let i = index">
+                            <td class="key">Min</td>
+                            <td>{{p.fanSpeedMin}}</td>
+                            <td class="key">Max</td>
+                            <td>{{p.fanSpeedMax}}</td>
+                        </ng-container>
+                    </tr>
+                    
+                </table>
+
+            </div>
+
+
+  </div>

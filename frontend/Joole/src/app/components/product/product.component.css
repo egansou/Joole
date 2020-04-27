@@ -1,0 +1,57 @@
+/* product CSS Here */
+.inner {
+    border-color: rgb(216, 216, 216);
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+
+.inner:hover {
+    border-color: rgb(186, 186, 241);
+}
+
+
+.header {
+    float: right;
+    font-size : 9px;
+    color : rgb(78, 78, 230);
+    padding : 5px;
+}
+
+.inner img {
+    width : 99%
+}
+
+.detail {
+    font-weight: 600;
+    color : rgb(56, 56, 197);
+    font-size: 13px;
+}
+
+.info {
+    background-color: rgb(238, 238, 238);
+    font-size: 12px;
+    width : 99.5%
+}
+
+.specifications {
+    color: red;
+    font-size: 11px;
+    margin: 5px;
+}
+
+.compare {
+    padding-right: 20px;
+    font-size: 10px
+}
+
+.addto {
+    padding-left: 20px;
+    color: white;
+    background-color: #008CBA;
+    font-size: 10px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}

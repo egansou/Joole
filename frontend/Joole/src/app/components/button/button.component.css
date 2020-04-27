@@ -1,0 +1,26 @@
+/* The button css starts here */
+
+.wrapper .button_box .button{
+    width: 65px;
+    border: 1px solid gray;
+    background-color: rgb(116, 142, 255);
+    border-radius: 5px;
+    position : relative;
+    cursor : pointer
+}
+
+.wrapper .button_box .button .default_option{
+    padding : 4px 5px;
+    font-size: 11px;
+    color : white;
+}
+
+
+.wrapper .button_box .button:before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 6px;
+    border: 5px solid;
+    border-color: black transparent transparent transparent;
+}

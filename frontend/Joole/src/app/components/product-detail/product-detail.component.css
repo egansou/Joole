@@ -1,0 +1,117 @@
+.topPart {
+    width: 100%;
+    height: 80px;
+}
+
+.auth .user {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 16px;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    position: absolute;
+    color: blue;
+    top: 30px;
+    left: 60px;
+    transform: translate(-50%, -50%);
+}
+
+app-searchbar {
+    position: absolute; 
+    top: 30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.layer {
+    background-color: white;
+    position: absolute;
+    left: 0;
+    width: 100%; 
+}
+
+.product {
+    margin : 5px;
+}
+
+.info{
+    padding : 20px;
+}
+/* The product information CSS starts here */
+
+.productHeader {
+    border-top-color: rgb(206, 206, 206);
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+
+.row img {
+    padding-top: 3px;
+    width : 100%
+}
+
+.productHeader h5{
+    font-size: 16px;
+    padding-top: 3px;
+    color: rgb(64, 64, 223); 
+}
+
+.productHeader h6{
+    padding-top: 6px;
+    font-size: 12px;
+    color: red; 
+}
+
+app-button {
+    padding-top: 3px;
+    float: right;     
+}
+
+
+h4 {
+    padding-top: 20px;
+    color: rgb(64, 64, 223);;
+}
+
+
+
+.sub {
+    border-top-color: rgb(206, 206, 206);
+    border-top-width: 1.5px;
+    border-top-style: solid;
+    border-bottom-color: rgb(206, 206, 206);
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.keys {
+    padding-right:0;
+}
+
+.values {
+    padding-left:0;
+}
+
+.key {
+    background-color: rgb(235, 235, 235);
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.value {
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.last {
+    border-bottom-color: rgb(206, 206, 206);
+    border-bottom-width: 1.5px;
+    border-bottom-style: solid;
+    padding-left: 20px;
+}

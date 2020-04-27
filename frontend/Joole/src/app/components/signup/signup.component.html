@@ -1,0 +1,88 @@
+<div class = "topPart">
+    <a routerLink="/" class = "auth">Login</a>
+</div>
+
+<div class="signup">
+    <h1>Joole</h1> 
+    <h5>Building Product Selection Platform</h5>
+    <br>
+    <form [formGroup]="form">
+
+        <div class="error" *ngIf="invalidSignIn">
+            Please, change the username or email.
+         </div>
+
+         <div class="form-group"> 
+            <div class="search_box">
+              <div class="search_field">
+                  <input formControlName="first" 
+                  class="input-field" type="text" placeholder="First name"> 
+                  <i class="fa fa-user icon"> </i> 
+                   <div class = "error" *ngIf="first.touched && first.invalid">
+                      First name is required
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <div class="form-group"> 
+            <div class="search_box">
+                <div class="search_field">
+                    <input formControlName="last"
+                    class="input-field" type="text" placeholder="Last name">
+                    <i class="fa fa-user icon"> </i> 
+                    <div class = "error" *ngIf="last.touched && last.invalid">
+                        Last name is required
+                    </div>
+                </div> 
+            </div>
+        </div> 
+
+        <br>
+
+        <div class="form-group"> 
+            <div class="search_box">
+                <div class="search_field"> 
+                    <input formControlName="username"
+                    class="input-field" type="text" placeholder="Username"> 
+                    <i class="fa fa-user icon"> </i>
+                    <div class = "error" *ngIf="username.touched && username.invalid">
+                        An username is required
+                    </div>
+                </div> 
+            </div> 
+        </div> 
+
+        <div class="form-group"> 
+            <div class="search_box">
+                <div class="search_field">
+                    <input formControlName="email"
+                    class="input-field" type="email" placeholder="Email"> 
+                    <i class="fa fa-envelope icon"> </i> 
+                    <div class = "error" *ngIf="email.touched && email.invalid">
+                        A valid email is required
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="form-group"> 
+            <div class="search_box">
+                <div class="search_field"> 
+                    <input formControlName="password"
+                    class="input-field" type="password" placeholder="Password"> 
+                    <i class="fa fa-lock icon"> </i> 
+                    <div class = "error" *ngIf="password.touched && password.invalid">
+                        A valid password is required
+                    </div>
+                </div> 
+            </div>
+        </div>
+        
+        <button type="submit" [disabled]="form.invalid" (click)="signup()">Sign up</button>
+
+    </form> 
+    
+</div> 
+
+   
